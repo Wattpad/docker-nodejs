@@ -22,4 +22,4 @@ RUN apk --update add --virtual build-dependencies \
     make install && \
     paxctl -cm /usr/bin/node && \
     rm -r /node-${NODEJS_VERSION} && \
-    apk del build-dependencies &&
+    apk del build-dependencies
