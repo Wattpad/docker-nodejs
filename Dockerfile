@@ -9,6 +9,7 @@ RUN apk --update add --virtual build-dependencies \
     make \
     gcc \
     g++ \
+    python \
     binutils-gold \
     linux-headers \
     paxctl \
