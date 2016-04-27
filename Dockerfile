@@ -21,4 +21,5 @@ RUN apk --update add --virtual build-dependencies \
     make -j$(grep -c ^processor /proc/cpuinfo 2>/dev/null || 1) && \
     make install && \
     paxctl -cm /usr/bin/node && \
-    apk del build-dependencies
+    rm -r /node-${NODEJS_VERSION} && \
+    apk del build-dependencies &&
