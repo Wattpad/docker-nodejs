@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 
-NODEJS_VERSION=$(grep '^ENV NODEJS_VERSION' Dockerfile  | cut -d '=' -f 2 | sed 's/^v//')
-ALPINE_VERSION=$(grep '^FROM alpine' Dockerfile  | cut -d ':' -f 2 )
+NODEJS_VERSION=$(grep '^ENV NODEJS_VERSION' Dockerfile  | cut -d '=' -f 2)
+ALPINE_VERSION=$(grep '^FROM alpine' Dockerfile  | cut -d ':' -f 2)
 IMAGE_VERSION=$(cat VERSION)
 
-GIT_TAG="v${IMAGE_VERSION}-node${NODEJS_VERSION}-alpine${ALPINE_VERSION}"
+GIT_TAG="${NODEJS_VERSION}-alpine${ALPINE_VERSION}-${IMAGE_VERSION}"
 
 GIT_TAG_BODY=$(cat <<-TAG_BODY
-Release v${IMAGE_VERSION}
-
 Node.js version: ${NODEJS_VERSION}
 Alpine version: ${ALPINE_VERSION}
+Image version: ${IMAGE_VERSION}
+
 TAG_BODY
 )
 
