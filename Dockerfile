@@ -1,6 +1,6 @@
 FROM alpine:3.2
 
-ENV NODEJS_VERSION=v5.12
+ENV NODEJS_VERSION=v5.12.0
 ENV DEL_PKGS="libgcc libstdc++" RM_DIRS=/usr/include
 
 RUN apk --update add --virtual build-dependencies \
