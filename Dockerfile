@@ -15,7 +15,7 @@ RUN apk --update add --virtual build-dependencies \
     paxctl \
     libgcc \
     libstdc++ && \
-    curl -s https://nodejs.org/dist/${NODEJS_VERSION}/node-${NODEJS_VERSION}.tar.gz | tar -xz && \
+    curl -s -S https://nodejs.org/dist/${NODEJS_VERSION}/node-${NODEJS_VERSION}.tar.gz | tar -xz && \
     cd /node-${NODEJS_VERSION} && \
     ./configure --prefix=/usr && \
     make -j$(grep -c ^processor /proc/cpuinfo 2>/dev/null || 1) && \
